@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: java-ip-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: k8java
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP

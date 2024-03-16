@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-java-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8java
+  template:
+    metadata:
+      labels:
+        app: k8java
+    spec:
+      containers:
+        - name: k8java-container
+          image: hk215/notes-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
